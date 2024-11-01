@@ -13,7 +13,6 @@ public class Book {
     private String author;
     private String price;
 
-
     public Book() {
         super();
     }

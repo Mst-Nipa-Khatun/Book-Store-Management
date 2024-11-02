@@ -9,6 +9,7 @@ public class BookController {
     public String index() {
     return "index";
     }
+
     @GetMapping("/book_register")
     public String bookRegister() {
         return "bookRegister";

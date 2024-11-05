@@ -26,11 +26,11 @@ public class BookController {
 
     @GetMapping("/available_books")
     public ModelAndView getAllBook() {
-        List<Book> bookList = bookService.getAllBook();
+        List<Book> list = bookService.getAllBook();
 //        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("bookList", bookList);
-//        modelAndView.setViewName("available_books");
-        return new ModelAndView("modelAndView","bookList",bookList);
+//        modelAndView.addObject("book", list);
+//        modelAndView.setViewName("booklist");
+        return new ModelAndView("booklist","book",list);
     }
     @PostMapping("/save")
     public String addBook(@ModelAttribute Book book) {

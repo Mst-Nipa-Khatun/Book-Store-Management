@@ -2,8 +2,10 @@ package com.bookStore.controller;
 
 import com.bookStore.entity.Book;
 import com.bookStore.service.BookService;
+import com.bookStore.service.MyBookListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -13,6 +15,9 @@ import java.util.List;
 public class BookController {
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private MyBookListService myBookListService;
 
     @GetMapping("/")
     public String index() {
@@ -36,6 +41,17 @@ public class BookController {
     public String addBook(@ModelAttribute Book book) {
         bookService.save(book);
         return "redirect:/available_books";
+    }
+    @GetMapping("/my_books") //index html er my books er url name
+    public String getMyBooks() {
+        return "myBooks"; //html myBooks
+    }
+    @RequestMapping("/myList/{id}")
+    public String getMyList(@PathVariable("id") int id, Model model) {
+       Book book = bookService.getBookById(id);
+        return "";
+
+
     }
 
 }

@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>Book Store Page!</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <body>
 
@@ -49,14 +53,18 @@
         </tr>
         </thead>
         <tbody>
-        <!--<tr th:each="b :${book}">
+        <tr th:each="b :${book}">
             <td th:text="${b.id}"></td>
             <td th:text="${b.name}"></td>
             <td th:text="${b.author}"></td>
             <td th:text="${b.price}"></td>
-            <td><a class="btn btn-secondary btn-sn">Add to my book</a></td>
+            <td>
+               <a>
+                   <i class="fa fa-trash"></i>
+               </a>
+            </td>
 
-        </tr>-->
+        </tr>
 
         </tbody>
     </table>

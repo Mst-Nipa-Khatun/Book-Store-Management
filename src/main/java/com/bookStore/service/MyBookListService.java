@@ -5,6 +5,8 @@ import com.bookStore.repository.MyBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MyBookListService {
     @Autowired
@@ -12,6 +14,12 @@ public class MyBookListService {
 
     public void saveMyBooks(MyBookList book){
         MyBookRepository.save(book);
+    }
+    public List<MyBookList> getMyBookList(){
+        return MyBookRepository.findAll();
+    }
+    public void deleteMyBook(MyBookList book){
+        MyBookRepository.delete(book);
     }
 }
 

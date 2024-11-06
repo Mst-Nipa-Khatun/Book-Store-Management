@@ -59,7 +59,7 @@
             <td th:text="${b.author}"></td>
             <td th:text="${b.price}"></td>
             <td>
-               <a>
+               <a th:href="@{/deleteMyList/{id}(id=${b.id})}">
                    <i class="fa fa-trash"></i>
                </a>
             </td>

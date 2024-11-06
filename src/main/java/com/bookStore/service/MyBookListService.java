@@ -18,8 +18,8 @@ public class MyBookListService {
     public List<MyBookList> getMyBookList(){
         return MyBookRepository.findAll();
     }
-    public void deleteMyBook(MyBookList book){
-        MyBookRepository.delete(book);
+    public void deleteById(int id){
+        MyBookRepository.deleteById(id);
     }
 }
 

@@ -1,6 +1,7 @@
 package com.bookStore.controller;
 
 import com.bookStore.entity.Book;
+import com.bookStore.entity.MyBookList;
 import com.bookStore.service.BookService;
 import com.bookStore.service.MyBookListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,9 +48,11 @@ public class BookController {
         return "myBooks"; //html myBooks
     }
     @RequestMapping("/myList/{id}")
-    public String getMyList(@PathVariable("id") int id, Model model) {
+    public String getMyList(@PathVariable("id") int id) {
        Book book = bookService.getBookById(id);
-        return "";
+       MyBookList myBookList = new MyBookList(book.getId(),book.getName(),book.getAuthor(),book.getPrice());
+        myBookListService.saveMyBooks(myBookList);
+       return "redirect:/my_books";
 
 
     }

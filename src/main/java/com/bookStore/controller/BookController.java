@@ -44,8 +44,10 @@ public class BookController {
         return "redirect:/available_books";
     }
     @GetMapping("/my_books") //index html er my books er url name
-    public String getMyBooks() {
-        return "myBooks"; //html myBooks
+    public String getMyBooks(Model model) {
+        List<MyBookList> list = myBookListService.getMyBookList();
+        model.addAttribute("book",list);
+        return "myBooks"; //html file myBooks
     }
     @RequestMapping("/myList/{id}")
     public String getMyList(@PathVariable("id") int id) {
@@ -53,7 +55,6 @@ public class BookController {
        MyBookList myBookList = new MyBookList(book.getId(),book.getName(),book.getAuthor(),book.getPrice());
         myBookListService.saveMyBooks(myBookList);
        return "redirect:/my_books";
-
 
     }
 
